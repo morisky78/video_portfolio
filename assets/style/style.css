@@ -3,24 +3,19 @@
 body{
     font-family: "poppins", sans-serif;
     background-color:#222;
-    display:flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-    height:100vh;
-
+    text-align: center;
 }
 
-.cards{
+.card_container{
     display:flex;
     flex-direction:row;
     align-items: stretch;
-    overflow: hidden;
     min-width: 600px;
-    max-width: 900px;
-    width:calc(100% - 100px);
+    max-width: 940px;
+    width:calc(100% - 50px);
     height:400px;
+    margin: 0 auto;
+    padding:20px 0;
 }
 
 .card{
@@ -35,6 +30,7 @@ body{
     cursor:pointer;
     transition:0.5s cubic-bezier(0.05, 0.61, 0.41, 0.95);
     border-radius: 35px;
+
 }
 .card.active{
     flex-grow:1000;
@@ -83,6 +79,8 @@ body{
 .label .info > div{
     position:relative;
     transition: 0.5s cubic-bezier(0.05, 0.61, 0.41, 0.95), opacity 0.5s ease-out;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+    text-align: left;
 }
 
 .label .info .main{
@@ -116,20 +114,64 @@ body{
     --defaultBackground:rgb(199, 35, 92);
 }
 
-@media screen and (max-width: 718px) {
-    .cards{
-        min-width: 520px;
+@media screen and (max-width: 940px) {
+    .card{
+        min-width:60px;
     }
-    .card:nth-child(5) {
-        display:none;
+    .card .label{
+        left:12px;
+    }
+    
+}
+
+@media screen and (max-width: 768px) {
+    .card_container{
+        flex-direction:column;
+        width:calc(100% - 100px);
+        min-width: calc(100% - 100px);
+    }
+    .card{
+        flex-grow:1000;
+        position:relative;
+        overflow:hidden;
+        min-width:calc(100% - 100px);
+        min-height: 64px;
+        background-size:120% auto;
+    }
+    .card.active{
+        flex-grow:1000;
+        transform: scale(1);
+        min-height: 360px;
+        height:360px;
+        background-size:100% auto;
+        border:5px solid #fff;
+
+    }
+    .card .label{
+        bottom:12px;
+        left:15px;
+    }
+    
+    .card.active .label{
+        bottom:12px;
+        left:20px;
     }
 }
 
-@media screen and (max-width: 638px) {
-    .cards{
-        min-width: 440px;
+/* Small smartphones  */
+@media screen and (max-width: 576px) {
+    .card_container{
+        flex-direction:column;
+        width:calc(100% - 40px);
+        min-width: calc(100% - 40px);
     }
-    .card:nth-child(4) {
-        display:none;
+    .card.active{
+        flex-grow:1000;
+        transform: scale(1);
+        min-height: 260px;
+        height:260px;
+        background-size:100% auto;
+        border:5px solid #fff;
+        min-width:calc(100% - 40px);
     }
 }
