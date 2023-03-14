@@ -101,17 +101,35 @@ body{
     --defaultBackground:rgb(255, 55, 0);
 }
 .card:nth-child(2) {
-    --defaultBackground:rgb(55, 255, 0);
+    --defaultBackground:rgb(73, 223, 31);
 }
 .card:nth-child(3) {
-    --defaultBackground:rgb(24, 106, 177);
+    --defaultBackground:rgb(27, 126, 212);
 }
 .card:nth-child(4) {
-    --defaultBackground:rgb(53, 21, 147);
+    --defaultBackground:rgb(80, 40, 198);
 }
 .card:nth-child(5) {
-    --defaultBackground:rgb(132, 25, 84);
+    --defaultBackground:rgb(211, 208, 37);
 }
 .card:nth-child(6) {
-    --defaultBackground:rgb(110, 24, 54);
+    --defaultBackground:rgb(199, 35, 92);
+}
+
+@media screen and (max-width: 718px) {
+    .cards{
+        min-width: 520px;
+    }
+    .card:nth-child(5) {
+        display:none;
+    }
+}
+
+@media screen and (max-width: 638px) {
+    .cards{
+        min-width: 440px;
+    }
+    .card:nth-child(4) {
+        display:none;
+    }
 }
