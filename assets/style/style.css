@@ -24,33 +24,94 @@ body{
 }
 
 .card{
+    flex-grow:1;
     position:relative;
     overflow:hidden;
-    min-width:80px;
+    min-width:64px;
     margin:10px;
-    background:var(--cardBackground,var(--defaultBackground,#e6e9ed));
+    background:var(--cardBackground, var(--defaultBackground,#f0f));
     background-size:auto 120%;
     background-position:center;
     cursor:pointer;
     transition:0.5s cubic-bezier(0.05, 0.61, 0.41, 0.95);
+    border-radius: 35px;
 }
 .card.active{
     flex-grow:1000;
     transform: scale(1);
     max-width:600px;
     margin:0px;
-    border-radius:40px;
     background-size:auto 100%;
     border:5px solid #fff;
+    transition:0.5s ease-in;
 }
-.card:not(.active) {
-    flex-grow:1;
-    border-radius: 30px;
-}
-.label{
+
+.card .label{
     display:flex;
     position:absolute;
-    right:0px;
+    bottom:15px;
+    left:14px;
     height:40px;
     transition:0.5s cubic-bezier(0.05, 0.61, 0.41, 0.95);
+}
+
+.card.active .label{
+    bottom:20px;
+}
+
+.label .icon{
+    display:flex;
+    flex-direction: row;
+    justify-content:center;
+    align-items: center;
+    min-width:40px;
+    max-width:40px;
+    height:40px;
+    border-radius:100%;
+    background:#fff;
+    color: var(--defaultBackground,  #000);
+}
+.label .info{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left:10px;
+    color:#fff;
+    white-space: pre;
+}
+
+.label .info > div{
+    position:relative;
+    transition: 0.5s cubic-bezier(0.05, 0.61, 0.41, 0.95), opacity 0.5s ease-out;
+}
+
+.label .info .main{
+    font-weight:normal;
+    font-size:1rem;
+    text-transform: uppercase;
+    margin-bottom:3px;
+}
+.label .info .sub{
+    transition-delay: 0.8s;
+    font-size:0.8rem;
+
+}
+
+.card:nth-child(1) {
+    --defaultBackground:rgb(255, 55, 0);
+}
+.card:nth-child(2) {
+    --defaultBackground:rgb(55, 255, 0);
+}
+.card:nth-child(3) {
+    --defaultBackground:rgb(24, 106, 177);
+}
+.card:nth-child(4) {
+    --defaultBackground:rgb(53, 21, 147);
+}
+.card:nth-child(5) {
+    --defaultBackground:rgb(132, 25, 84);
+}
+.card:nth-child(6) {
+    --defaultBackground:rgb(110, 24, 54);
 }
